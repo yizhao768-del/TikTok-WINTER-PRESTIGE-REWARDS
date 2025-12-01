@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TikTok • WINTER PRESTIGE REWARDS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    /* ===== BASE LAYOUT & HIGH-TECH BACKGROUND ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #f5f5f5;
+      background: radial-gradient(circle at top, #202638 0, #050711 60%, #020308 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Floating orbs + grid overlay to give a tech feel */
+    .bg-animation {
+      position: fixed;
+      inset: 0;
+      overflow: hidden;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    .orb {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      filter: blur(4px);
+      opacity: 0.75;
+      background: radial-gradient(circle, #fe2c55 0%, rgba(254, 44, 85, 0) 65%);
+      animation: floatOrb 16s ease-in-out infinite alternate;
+    }
+
+    .orb2 {
+      background: radial-gradient(circle, #25f4ee 0%, rgba(37, 244, 238, 0) 65%);
+      animation-duration: 20s;
+      animation-delay: -4s;
+    }
+
+    .orb3 {
+      background: radial-gradient(circle, #ffffff 0%, rgba(255, 255, 255, 0) 70%);
+      animation-duration: 22s;
+      animation-delay: -8s;
+    }
+
+    .orb1 { top: -40px; left: -40px; }
+    .orb2 { bottom: -80px; right: -60px; }
+    .orb3 { top: 40%; left: 60%; }
+
+    @keyframes floatOrb {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, -30px, 0) scale(1.1); }
+      100% { transform: translate3d(-30px, 40px, 0) scale(1.05); }
+    }
+
+    .grid-overlay {
+      position: fixed;
+      inset: 0;
+      background-image: linear-gradient(
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.04) 1px,
+          transparent 1px
+        );
+      background-size: 40px 40px;
+      mix-blend-mode: soft-light;
+      opacity: 0.4;
+      z-index: -1;
+      pointer-events: none;
+      animation: driftGrid 30s linear infinite;
+    }
+
+    @keyframes driftGrid {
+      0% { transform: translate3d(0,0,0); }
+      100% { transform: translate3d(-80px, -80px, 0); }
+    }
+
+    .scanline {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.05) 0,
+        rgba(255,255,255,0.05) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      mix-blend-mode: soft-light;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: -1;
+      animation: scanMove 5s linear infinite;
+    }
+
+    @keyframes scanMove {
+      0% { background-position: 0 0; }
+      100% { background-position: 0 100px; }
+    }
+
+    /* ===== MAIN CARD LAYOUT ===== */
+    .outer-shell {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px 12px;
+    }
+
+    .card {
+      width: 100%;
+      max-width: 700px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, rgba(15,17,30,0.95), rgba(19,24,46,0.97));
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.04),
+        0 26px 60px rgba(0,0,0,0.85);
+      padding: 20px 18px 24px;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(16px);
+      animation: cardIn 0.7s ease-out;
+    }
+
+    @keyframes cardIn {
+      from {
+        transform: translate3d(0, 16px, 0);
+        opacity: 0;
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left,
+        rgba(254,44,85,0.28),
+        transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      text-align: center;
+      margin-bottom: 18px;
+      animation: fadeUp 0.7s ease-out;
+    }
+
+    .logo-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.6);
+      border: 1px solid rgba(255,255,255,0.18);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
+    }
+
+    .logo-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fe2c55, #25f4ee);
+      box-shadow: 0 0 8px rgba(254,44,85,0.9);
+    }
+
+    .title {
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .title span.tiktok {
+      color: #ffffff;
+    }
+
+    .title span.dot {
+      color: #fe2c55;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #d0d4e8;
+      opacity: 0.9;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translate3d(0, 8px, 0); }
+      to { opacity: 1; transform: translate3d(0, 0, 0); }
+    }
+
+    /* ===== STEPS CONTAINER ===== */
+    .step {
+      display: none;
+    }
+    .step.active {
+      display: block;
+    }
+
+    /* ===== STEP 1: PRIZES + SIGNATURE ===== */
+    .prize-grid {
+      display: grid;
+      gap: 10px;
+      margin: 16px 0 12px;
+    }
+
+    @media (min-width: 640px) {
+      .prize-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .prize-card {
+      background: radial-gradient(circle at top,
+        rgba(255,255,255,0.05),
+        rgba(12,13,27,0.96));
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.09);
+      padding: 10px;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    .prize-card::before {
+      content: attr(data-index);
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 0.85rem;
+      opacity: 0.4;
+    }
+
+    .prize-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #f5f7ff;
+    }
+
+    .prize-image-wrap {
+      overflow: hidden;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .prize-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      transition: transform 0.9s ease-out;
+    }
+
+    .prize-card:hover .prize-image {
+      transform: scale(1.03);
+    }
+
+    .note-row {
+      margin-top: 6px;
+      font-size: 0.8rem;
+      color: #aab0d5;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .note-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #25f4ee;
+      box-shadow: 0 0 6px rgba(37,244,238,0.8);
+    }
+
+    /* Signature area */
+    .signature-block {
+      margin-top: 14px;
+      border-radius: 16px;
+      padding: 12px 12px 14px;
+      background: radial-gradient(circle at top left,
+        rgba(37,244,238,0.2),
+        rgba(0,0,0,0.8));
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: fadeUp 0.7s ease-out;
+    }
+
+    .signature-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .signature-helper {
+      font-size: 0.78rem;
+      color: #c7cbe4;
+      margin-bottom: 8px;
+    }
+
+    #signaturePad {
+      width: 100%;
+      height: 160px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      touch-action: none;
+    }
+
+    .sig-footer {
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .confirm-area {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #e4e7ff;
+    }
+
+    .confirm-area input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: #fe2c55;
+      cursor: pointer;
+    }
+
+    .clear-btn {
+      border: none;
+      background: transparent;
+      color: #a3a8d9;
+      font-size: 0.8rem;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .clear-btn:hover {
+      color: #ffffff;
+    }
+
+    .primary-btn {
+      margin-top: 14px;
+      width: 100%;
+      border-radius: 999px;
+      padding: 10px 16px;
+      border: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      background: linear-gradient(120deg, #fe2c55, #25f4ee);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.15),
+        0 10px 22px rgba(0,0,0,0.9);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      animation: pulseBtn 1.6s ease-in-out infinite;
+    }
+
+    .primary-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg,
+        rgba(255,255,255,0.25),
+        transparent,
+        rgba(255,255,255,0.25));
+      opacity: 0;
+      transform: translateX(-80%);
+      pointer-events: none;
+    }
+
+    .primary-btn:hover::before {
+      opacity: 1;
+      animation: shimmer 1.2s linear;
+    }
+
+    @keyframes shimmer {
+      0% { transform: translateX(-80%); }
+      100% { transform: translateX(80%); }
+    }
+
+    @keyframes pulseBtn {
+      0%, 100% { box-shadow: 0 10px 22px rgba(0,0,0,0.9); }
+      50% { box-shadow: 0 14px 30px rgba(0,0,0,1); }
+    }
+
+    .primary-btn:disabled {
+      background: linear-gradient(120deg, #3c3f5a, #26293e);
+      box-shadow: none;
+      cursor: not-allowed;
+      animation: none;
+      opacity: 0.6;
+    }
+
+    .footer-text {
+      margin-top: 10px;
+      font-size: 0.76rem;
+      color: #a6accf;
+      text-align: center;
+    }
+
+    /* ===== STEP 2: DRAWING SCREEN ===== */
+    .draw-screen {
+      padding: 24px 8px 6px;
+      text-align: center;
+    }
+
+    .draw-spinner-wrap {
+      margin: 10px auto 18px;
+      width: 90px;
+      height: 90px;
+      position: relative;
+    }
+
+    .ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.1);
+      border-top-color: #fe2c55;
+      animation: spin 1.4s linear infinite;
+    }
+
+    .ring.r2 {
+      border-top-color: #25f4ee;
+      border-bottom-color: rgba(37,244,238,0.3);
+      inset: 10px;
+      animation-duration: 1.9s;
+      animation-direction: reverse;
+    }
+
+    .ring.r3 {
+      border-top-color: #ffffff;
+      border-left-color: rgba(255,255,255,0.25);
+      inset: 20px;
+      animation-duration: 2.5s;
+    }
+
+    @keyframes spin {
+      from { transform: rotate(0); }
+      to   { transform: rotate(360deg); }
+    }
+
+    .draw-text-main {
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .draw-text-sub {
+      font-size: 0.86rem;
+      color: #c4c7e2;
+    }
+
+    .dot-loader {
+      margin-top: 14px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .dot-loader span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #fe2c55;
+      animation: bounceDot 1s infinite ease-in-out;
+    }
+
+    .dot-loader span:nth-child(2) {
+      background: #ffffff;
+      animation-delay: 0.15s;
+    }
+
+    .dot-loader span:nth-child(3) {
+      background: #25f4ee;
+      animation-delay: 0.3s;
+    }
+
+    @keyframes bounceDot {
+      0%, 80%, 100% { transform: translateY(0); opacity: 0.5; }
+      40% { transform: translateY(-7px); opacity: 1; }
+    }
+
+    /* ===== STEP 3: RESULT SCREEN ===== */
+    .result-screen {
+      padding: 12px 6px 0;
+      text-align: center;
+    }
+
+    .result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.2);
+      background: rgba(0,0,0,0.6);
+      font-size: 0.82rem;
+      margin-bottom: 8px;
+    }
+
+    .result-badge span {
+      font-size: 1rem;
+    }
+
+    .result-title {
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .result-sub {
+      font-size: 0.88rem;
+      color: #cfd3f3;
+      margin-bottom: 10px;
+    }
+
+    .result-image-wrap {
+      max-width: 360px;
+      margin: 0 auto 8px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.15);
+      box-shadow:
+        0 14px 40px rgba(0,0,0,0.95),
+        0 0 18px rgba(37,244,238,0.45);
+      animation: zoomIn 0.75s ease-out;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+
+    .result-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .result-copy {
+      font-size: 0.9rem;
+      color: #e7ebff;
+      margin-bottom: 12px;
+    }
+
+    .secondary-btn {
+      border-radius: 999px;
+      border: none;
+      padding: 9px 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #050711;
+      background: #ffffff;
+      cursor: pointer;
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,0.65),
+        0 10px 22px rgba(0,0,0,0.9);
+    }
+
+    .secondary-btn:hover {
+      filter: brightness(0.97);
+    }
+
+    .claim-message {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #d5e1ff;
+      display: none;
+    }
+
+    .claim-message.visible {
+      display: block;
+      animation: fadeUp 0.6s ease-out;
+    }
+
+    /* ===== COMPLETED SCREEN ===== */
+    .completed-screen {
+      padding: 20px 10px 4px;
+      text-align: center;
+    }
+
+    .completed-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .completed-body {
+      font-size: 0.9rem;
+      color: #dfe5ff;
+    }
+
+    /* ===== CONFETTI ===== */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 8px;
+      height: 13px;
+      border-radius: 2px;
+      opacity: 0.95;
+      pointer-events: none;
+      z-index: 50;
+      animation: confettiFall 3.2s linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translate3d(0,0,0) rotateZ(0deg);
+      }
+      100% {
+        transform: translate3d(0, 110vh, 0) rotateZ(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated, high-tech background -->
+  <div class="bg-animation">
+    <div class="orb orb1"></div>
+    <div class="orb orb2"></div>
+    <div class="orb orb3"></div>
+  </div>
+  <div class="grid-overlay"></div>
+  <div class="scanline"></div>
+
+  <!-- Main card shell -->
+  <div class="outer-shell">
+    <div class="card">
+      <div class="card-inner">
+        <header class="header">
+          <div class="logo-pill">
+            <div class="logo-pill-dot"></div>
+            <span>TIKTOK WINTER PRESTIGE</span>
+          </div>
+          <h1 class="title">
+            <span class="tiktok">TikTok</span>
+            <span class="dot"> • </span>
+            WINTER PRESTIGE REWARDS
+          </h1>
+          <p class="subtitle">
+            A one-time winter draw for TikTok Prestige members across Canada.
+          </p>
+        </header>
+
+        <!-- STEP 1: prizes + signature -->
+        <section id="step-intro" class="step active">
+          <div class="prize-grid">
+            <article class="prize-card" data-index="1️⃣">
+              <h2 class="prize-title">
+                Saje Wellness Premium Wellness &amp; Aromatherapy Set
+              </h2>
+              <div class="prize-image-wrap">
+                <!-- Put your first image in the same folder and name it prize1.jpg (or change the file name here) -->
+                <img class="prize-image" src="prize1.jpg" alt="Saje Wellness Premium Wellness & Aromatherapy Set" />
+              </div>
+              <div class="note-row">
+                <div class="note-dot"></div>
+                <span>Curated wellness experience for calm winter nights.</span>
+              </div>
+            </article>
+
+            <article class="prize-card" data-index="2️⃣">
+              <h2 class="prize-title">
+                Premium Home &amp; Office Tech Lineup
+              </h2>
+              <div class="prize-image-wrap">
+                <!-- prize2 image -->
+                <img class="prize-image" src="prize2.jpg" alt="Premium Home & Office Tech Lineup" />
+              </div>
+              <div class="note-row">
+                <div class="note-dot"></div>
+                <span>Smart devices to level up your work and downtime.</span>
+              </div>
+            </article>
+
+            <article class="prize-card" data-index="3️⃣">
+              <h2 class="prize-title">
+                Estée Lauder Winter Radiance Skincare Collection
+              </h2>
+              <div class="prize-image-wrap">
+                <!-- prize3 image -->
+                <img class="prize-image" src="prize3.jpg" alt="Estée Lauder Winter Radiance Skincare Collection" />
+              </div>
+              <div class="note-row">
+                <div class="note-dot"></div>
+                <span>Winter glow essentials for hydrated, luminous skin.</span>
+              </div>
+            </article>
+
+            <article class="prize-card" data-index="4️⃣">
+              <h2 class="prize-title">
+                Luxury Accessories Gift Set
+              </h2>
+              <div class="prize-image-wrap">
+                <!-- prize4 image -->
+                <img class="prize-image" src="prize4.jpg" alt="Luxury Accessories Gift Set" />
+              </div>
+              <div class="note-row">
+                <div class="note-dot"></div>
+                <span>Tasteful, elevated pieces to complete your look.</span>
+              </div>
+            </article>
+
+            <article class="prize-card" data-index="5️⃣" style="grid-column: 1 / -1;">
+              <h2 class="prize-title">
+                Mystery Grand Prize
+              </h2>
+              <div class="prize-image-wrap">
+                <!-- prize5 image (iPhone 17 Pro MAX-2TB) -->
+                <img class="prize-image" src="prize5.jpg" alt="Mystery Grand Prize" />
+              </div>
+              <div class="note-row">
+                <div class="note-dot"></div>
+                <span>One exclusive top-tier reward reserved for our prestige winners.</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="signature-block">
+            <p class="signature-title">Signature for Entry</p>
+            <p class="signature-helper">
+              Use your fingertip on mobile or your mouse on desktop to sign inside the box.
+            </p>
+            <canvas id="signaturePad"></canvas>
+
+            <div class="sig-footer">
+              <label class="confirm-area">
+                <input type="checkbox" id="confirmCheck" />
+                <span>Confirm Signature</span>
+              </label>
+              <button type="button" class="clear-btn" id="clearSigBtn">
+                Clear signature
+              </button>
+            </div>
+
+            <button id="startBtn" class="primary-btn" disabled>
+              Start Raffle
+            </button>
+          </div>
+
+          <p class="footer-text">
+            This winter raffle can only be entered once per person. Thank you for being part of our TikTok community.
+          </p>
+        </section>
+
+        <!-- STEP 2: waiting / drawing screen (no prizes or signature shown) -->
+        <section id="step-draw" class="step">
+          <div class="draw-screen">
+            <div class="draw-spinner-wrap">
+              <div class="ring r1"></div>
+              <div class="ring r2"></div>
+              <div class="ring r3"></div>
+            </div>
+            <p class="draw-text-main">
+              Shuffling your Winter Prestige Rewards…
+            </p>
+            <p class="draw-text-sub">
+              Please hold on for just a moment while we secure your result.
+            </p>
+            <div class="dot-loader">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+        </section>
+
+        <!-- STEP 3: result screen with centered prize -->
+        <section id="step-result" class="step">
+          <div class="result-screen">
+            <div class="result-badge">
+              <span>🎉</span>
+              <span>Official Reward Reveal</span>
+            </div>
+            <h2 class="result-title">
+              Mystery Grand Prize Unlocked
+            </h2>
+            <p class="result-sub">
+              Your winter reward has been confirmed and locked to your profile.
+            </p>
+
+            <div class="result-image-wrap">
+              <!-- Show the same Mystery Grand Prize image -->
+              <img
+                id="resultImage"
+                class="result-image"
+                src="prize5.jpg"
+                alt="Mystery Grand Prize: iPhone 17 Pro MAX-2TB"
+              />
+            </div>
+
+            <p id="resultCopy" class="result-copy">
+              Congratulations! You won the Mystery Grand Prize:
+              <strong>iPhone 17 Pro MAX-2TB</strong>.
+            </p>
+
+            <button id="claimBtn" class="secondary-btn">
+              Claim Your Prize
+            </button>
+
+            <p id="claimMessage" class="claim-message">
+              Congratulations dear friend! Now please contact your personal concierge via Telegram,
+              share your prize info, and complete the challenge to become a Level 4 Prestige Member
+              to receive your reward.
+            </p>
+          </div>
+        </section>
+
+        <!-- STEP 4: screen when user comes back after already completing the raffle -->
+        <section id="step-completed" class="step">
+          <div class="completed-screen">
+            <p class="completed-title">
+              Draw already completed
+            </p>
+            <p class="completed-body">
+              Dear friend, you have already completed the raffle. Your prize is the
+              <strong>iPhone 17 Pro MAX-2TB</strong>. Please contact your concierge on Telegram and
+              complete the remaining tasks to claim your reward.
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ===== STATE FLAGS =====
+    const STORAGE_KEY = "tiktokWinterRaffleCompleted";
+    let hasSigned = false;
+    let raffleCompleted = false;
+
+    // ===== ELEMENT REFERENCES =====
+    const stepIntro = document.getElementById("step-intro");
+    const stepDraw = document.getElementById("step-draw");
+    const stepResult = document.getElementById("step-result");
+    const stepCompleted = document.getElementById("step-completed");
+
+    const signaturePad = document.getElementById("signaturePad");
+    const confirmCheck = document.getElementById("confirmCheck");
+    const clearSigBtn = document.getElementById("clearSigBtn");
+    const startBtn = document.getElementById("startBtn");
+
+    const claimBtn = document.getElementById("claimBtn");
+    const claimMessage = document.getElementById("claimMessage");
+
+    const ctx = signaturePad.getContext("2d");
+
+    // ===== STEP MANAGEMENT =====
+    function showStep(step) {
+      [stepIntro, stepDraw, stepResult, stepCompleted].forEach((el) => {
+        el.classList.remove("active");
+      });
+      step.classList.add("active");
+    }
+
+    // ===== SIGNATURE PAD SETUP =====
+    function resizeSignaturePad() {
+      const rect = signaturePad.getBoundingClientRect();
+      signaturePad.width = rect.width * window.devicePixelRatio;
+      signaturePad.height = rect.height * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      ctx.lineWidth = 2;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.strokeStyle = "#000000";
+    }
+
+    let drawing = false;
+
+    function handlePointerDown(e) {
+      if (raffleCompleted) return;
+      drawing = true;
+      hasSigned = true;
+      const rect = signaturePad.getBoundingClientRect();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - rect.left, e.clientY - rect.top);
+      updateStartButtonState();
+    }
+
+    function handlePointerMove(e) {
+      if (!drawing) return;
+      const rect = signaturePad.getBoundingClientRect();
+      ctx.lineTo(e.clientX - rect.left, e.clientY - rect.top);
+      ctx.stroke();
+    }
+
+    function endDrawing(e) {
+      if (!drawing) return;
+      drawing = false;
+      ctx.closePath();
+    }
+
+    function clearSignature() {
+      const rect = signaturePad.getBoundingClientRect();
+      ctx.clearRect(0, 0, rect.width, rect.height);
+      hasSigned = false;
+      updateStartButtonState();
+    }
+
+    // ===== BUTTON / CHECKBOX LOGIC =====
+    function updateStartButtonState() {
+      if (raffleCompleted) {
+        startBtn.disabled = true;
+      } else {
+        startBtn.disabled = !(hasSigned && confirmCheck.checked);
+      }
+    }
+
+    // ===== DRAW / RAFFLE FLOW =====
+    function startRaffle() {
+      if (startBtn.disabled || raffleCompleted) return;
+
+      showStep(stepDraw);
+
+      // wait 2.6 seconds, then reveal result
+      setTimeout(() => {
+        showStep(stepResult);
+        launchConfetti();
+        raffleCompleted = true;
+        localStorage.setItem(STORAGE_KEY, "true");
+      }, 2600);
+    }
+
+    // ===== CLAIM BUTTON =====
+    function handleClaim() {
+      claimMessage.classList.add("visible");
+      claimBtn.disabled = true;
+    }
+
+    // ===== CONFETTI EFFECT =====
+    function launchConfetti() {
+      const colors = ["#fe2c55", "#25f4ee", "#ffffff", "#ffd65c"];
+      const numPieces = 80;
+
+      for (let i = 0; i < numPieces; i++) {
+        const c = document.createElement("div");
+        c.className = "confetti";
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        c.style.backgroundColor = color;
+
+        const left = Math.random() * 100;
+        c.style.left = left + "vw";
+
+        const delay = Math.random() * 0.7;
+        c.style.animationDelay = delay + "s";
+
+        const duration = 2.4 + Math.random() * 1.2;
+        c.style.animationDuration = duration + "s";
+
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), (duration + 0.5) * 1000);
+      }
+    }
+
+    // ===== INITIALIZATION =====
+    window.addEventListener("DOMContentLoaded", () => {
+      // Check if raffle already done
+      raffleCompleted = localStorage.getItem(STORAGE_KEY) === "true";
+
+      if (raffleCompleted) {
+        showStep(stepCompleted);
+      } else {
+        showStep(stepIntro);
+      }
+
+      // Setup signature pad
+      resizeSignaturePad();
+      window.addEventListener("resize", resizeSignaturePad);
+
+      signaturePad.addEventListener("pointerdown", handlePointerDown);
+      signaturePad.addEventListener("pointermove", handlePointerMove);
+      signaturePad.addEventListener("pointerup", endDrawing);
+      signaturePad.addEventListener("pointercancel", endDrawing);
+      signaturePad.addEventListener("pointerleave", endDrawing);
+
+      confirmCheck.addEventListener("change", updateStartButtonState);
+      clearSigBtn.addEventListener("click", clearSignature);
+      startBtn.addEventListener("click", startRaffle);
+      claimBtn.addEventListener("click", handleClaim);
+
+      updateStartButtonState();
+    });
+  </script>
+</body>
+</html>
